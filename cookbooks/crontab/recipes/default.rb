@@ -13,4 +13,47 @@ if node[:name] == 'opt'
     user 'deploy' 
     command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake edi:import_logistics_execution_file"
   end 
+  cron "opt1" do
+    minute '33'
+    hour '*/1'
+    user 'deploy'
+    command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake optimization:opt1"
+  end
+  cron "opt2" do
+    minute '36'
+    hour '*/1'
+    user 'deploy'
+    command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake optimization:opt2"
+  end
+  cron "opt3" do
+    minute '37'
+    hour '*/1'
+    user 'deploy'
+    command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake optimization:opt3"
+  end
+  cron "opt4" do
+    minute '38'
+    hour '*/1'
+    user 'deploy'
+    command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake optimization:opt4"
+  end
+  cron "opt5" do
+    minute '39'
+    hour '*/1'
+    user 'deploy'
+    command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake optimization:opt5"
+  end
+  cron "opt_recap" do
+    minute '5'
+    hour '*/1'
+    user 'deploy'
+    command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake optimization:opt_recap"
+  end
+  cron "route_pickup_routings" do
+    minute '*/5'
+    hour '*'
+    user 'deploy'
+    command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake optimization:route_pickup_routings"
+  end
+
 end
