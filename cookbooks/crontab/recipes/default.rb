@@ -55,5 +55,11 @@ if node[:name] == 'opt'
     user 'deploy'
     command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake optimization:route_pickup_routings"
   end
+  cron "process_batch_rater_requests" do
+    minute '15'
+    hour '*/1'
+    user 'deploy'
+    command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake rating:process_batch_rater_requests"
+  end
 
 end
