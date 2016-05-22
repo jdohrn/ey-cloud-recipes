@@ -61,5 +61,12 @@ if node[:name] == 'opt'
     user 'deploy'
     command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake rating:process_batch_rater_requests"
   end
+  cron "weekly_maintenance_cycle" do
+    minute '0'
+    hour '9'
+    weekday '6'
+    user 'deploy'
+    command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake maintenance:weekly_maintenance_cycle"
+  end
 
 end
