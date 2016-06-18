@@ -3,7 +3,7 @@
 # Recipe:: default
 #
 
-if node[:instance_role] == "solo" || (node[:instance_role] == "util" && node[:name] !~ /^(mongodb|redis|memcache)/)
+if node[:environment][:framework_env] == "production" && node[:instance_role] == "solo" || (node[:instance_role] == "util" && node[:name] !~ /^(mongodb|redis|memcache)/)
   node[:applications].each do |app_name,data|
   
     # determine the number of workers to run based on instance size
@@ -18,6 +18,10 @@ if node[:instance_role] == "solo" || (node[:instance_role] == "util" && node[:na
         worker_count = 2
       end
     end
+    
+    worker_count = 1
+    #forcing it to 1 as I think some of what it does is order sensitive right now - EDI etc.
+    #consider bumping it up once sure order important things don't call it - jd20160618
     
     worker_count.times do |count|
       template "/etc/monit.d/delayed_job#{count+1}.#{app_name}.monitrc" do
