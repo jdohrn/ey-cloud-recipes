@@ -19,9 +19,11 @@ if node[:environment][:framework_env] == "production" && node[:instance_role] ==
       end
     end
     
-    worker_count = 1
+    worker_count = 0
     #forcing it to 1 as I think some of what it does is order sensitive right now - EDI etc.
     #consider bumping it up once sure order important things don't call it - jd20160618
+    
+    #now forcing it to 0 and doing it a basic basic way -jd20160619
     
     worker_count.times do |count|
       template "/etc/monit.d/delayed_job#{count+1}.#{app_name}.monitrc" do
@@ -36,6 +38,19 @@ if node[:environment][:framework_env] == "production" && node[:instance_role] ==
           :framework_env => node[:environment][:framework_env]
         })
       end
+    end
+    
+    template "/etc/monit.d/delayed_job.#{app_name}.monitrc" do
+      source "dj.monitrc.erb"
+      owner "root"
+      group "root"
+      mode 0644
+      variables({
+        :app_name => app_name,
+        :user => node[:owner_name],
+        :worker_name => "delayed_job",
+        :framework_env => node[:environment][:framework_env]
+      })
     end
     
     execute "monit reload" do
