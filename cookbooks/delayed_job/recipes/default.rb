@@ -51,7 +51,7 @@ if node[:environment][:framework_env] == "production" && node[:instance_role] ==
           :user => node[:owner_name],
           :worker_name => "delayed_job_#{count + 1}",
           :framework_env => node[:environment][:framework_env],
-          :pid_name "delayed_job.#{count}",
+          :pid_name => "delayed_job.#{count}",
           :count => count
         })
       end
