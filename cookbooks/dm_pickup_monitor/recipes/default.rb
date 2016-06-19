@@ -7,7 +7,7 @@ command_name = 'pickup_monitor'
 # make sure you use bundle exec if appropriate
 # and note that the working directory will be
 # your app's current directory when this is called.
-command_to_run = 'bundle exec rake pickup_monitor:testies'
+command_to_run = 'RAILS_ENV=production bundle exec rake pickup_monitor:testies'
 
 # Which app is this for?
 app_name = 'synergy'
@@ -16,7 +16,7 @@ app_name = 'synergy'
 # If this command already runs as a daemon, then
 # set this to false. If it's something that usually
 # ties up a terminal, set to true
-run_in_background = false
+run_in_background = true
 
 # Let's assume this will be done on a util instance...
 # Change this as necessary.
