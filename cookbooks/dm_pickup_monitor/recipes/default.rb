@@ -7,7 +7,7 @@ command_name = 'pickup_monitor'
 # make sure you use bundle exec if appropriate
 # and note that the working directory will be
 # your app's current directory when this is called.
-command_to_run = 'BACKGROUND=y bundle exec rake pickup_monitor:testies'
+command_to_run = 'bundle exec rake pickup_monitor:testies'
 
 # Which app is this for?
 app_name = 'synergy'
