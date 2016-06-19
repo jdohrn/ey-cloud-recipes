@@ -19,7 +19,7 @@ if node[:environment][:framework_env] == "production" && node[:instance_role] ==
       end
     end
     
-    worker_count = 0
+    worker_count = 1
     #forcing it to 1 as I think some of what it does is order sensitive right now - EDI etc.
     #consider bumping it up once sure order important things don't call it - jd20160618
     
