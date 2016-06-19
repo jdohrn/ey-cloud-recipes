@@ -1,6 +1,6 @@
 check process <%= @worker_name %>
-  with pidfile /data/<%= @app_name %>/current/tmp/pids/<%= @worker_name %>.pid
-  start program = "RAILS_ENV=production /data/<%= @app_name %>/current/script/delayed_job start" with timeout 120 seconds
-  stop program = "RAILS_ENV=production /data/<%= @app_name %>/current/script/delayed_job stop" with timeout 120 seconds
+  with pidfile /data/<%= @app_name %>/current/tmp/pids/<%= @pid_name %>.pid
+  start program = "/usr/bin/env RAILS_ENV=production /data/<%= @app_name %>/current/script/delayed_job start -i <%= @count %>" with timeout 120 seconds
+  stop program = "/usr/bin/env RAILS_ENV=production /data/<%= @app_name %>/current/script/delayed_job stop -i <%= @count %>" with timeout 120 seconds
   #if totalmem is greater than 300 MB then restart # eating up memory?
   group dj_<%= @app_name %>

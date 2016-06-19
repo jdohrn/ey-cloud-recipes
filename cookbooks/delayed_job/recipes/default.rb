@@ -23,10 +23,25 @@ if node[:environment][:framework_env] == "production" && node[:instance_role] ==
     #forcing it to 1 as I think some of what it does is order sensitive right now - EDI etc.
     #consider bumping it up once sure order important things don't call it - jd20160618
     
-    #now forcing it to 0 and doing it a basic basic way -jd20160619
+    
+    
+    #worker_count.times do |count|
+    #  template "/etc/monit.d/delayed_job#{count+1}.#{app_name}.monitrc" do
+    #    source "dj.monitrc.erb"
+    #    owner "root"
+    #    group "root"
+    #    mode 0644
+    #    variables({
+    #      :app_name => app_name,
+    #      :user => node[:owner_name],
+    #      :worker_name => "#{app_name}_delayed_job#{count+1}",
+    #      :framework_env => node[:environment][:framework_env]
+    #    })
+    #  end
+    #end
     
     worker_count.times do |count|
-      template "/etc/monit.d/delayed_job#{count+1}.#{app_name}.monitrc" do
+      template "/etc/monit.d/delayed_job_#{count}.#{app_name}.monitrc" do
         source "dj.monitrc.erb"
         owner "root"
         group "root"
@@ -34,23 +49,12 @@ if node[:environment][:framework_env] == "production" && node[:instance_role] ==
         variables({
           :app_name => app_name,
           :user => node[:owner_name],
-          :worker_name => "#{app_name}_delayed_job#{count+1}",
-          :framework_env => node[:environment][:framework_env]
+          :worker_name => "delayed_job_#{count + 1}",
+          :framework_env => node[:environment][:framework_env],
+          :pid_name "delayed_job.#{count}",
+          :count => count
         })
       end
-    end
-    
-    template "/etc/monit.d/delayed_job.#{app_name}.monitrc" do
-      source "dj.monitrc.erb"
-      owner "root"
-      group "root"
-      mode 0644
-      variables({
-        :app_name => app_name,
-        :user => node[:owner_name],
-        :worker_name => "delayed_job",
-        :framework_env => node[:environment][:framework_env]
-      })
     end
     
     execute "monit reload" do
