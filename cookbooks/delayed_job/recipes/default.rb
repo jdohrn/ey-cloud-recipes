@@ -49,7 +49,7 @@ if node[:environment][:framework_env] == "production" && node[:instance_role] ==
         variables({
           :app_name => app_name,
           :user => node[:owner_name],
-          :worker_name => "delayed_job_#{count + 1}",
+          :worker_name => "delayed_job_#{count}",
           :framework_env => node[:environment][:framework_env],
           :pid_name => "delayed_job.#{count}",
           :count => count
