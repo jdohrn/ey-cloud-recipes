@@ -141,3 +141,4 @@
 
 require_recipe "crontab"
 require_recipe "delayed_job"
+require_recipe "dm_pickup_monitor"

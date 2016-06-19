@@ -1,22 +1,22 @@
 # Add the name of your command here. Only use 
 # alpha-numeric characters, as this will be used
 # to create filenames.
-command_name = ''
+command_name = 'pickup_monitor'
 
 # The path to your command. If this is rake task,
 # make sure you use bundle exec if appropriate
 # and note that the working directory will be
 # your app's current directory when this is called.
-command_to_run = ''
+command_to_run = 'BACKGROUND=y bundle exec rake pickup_monitor:testies'
 
 # Which app is this for?
-app_name = ''
+app_name = 'synergy'
 
 # Do we need to background this process?
 # If this command already runs as a daemon, then
 # set this to false. If it's something that usually
 # ties up a terminal, set to true
-run_in_background = true
+run_in_background = false
 
 # Let's assume this will be done on a util instance...
 # Change this as necessary.
