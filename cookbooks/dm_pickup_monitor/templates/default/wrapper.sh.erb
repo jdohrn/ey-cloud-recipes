@@ -42,7 +42,7 @@ if [ -d $RAILS_ROOT ]; then
         fi
         sudo rm -f $PID_FILE
       fi
-      exec "$COMMAND" 1>$EXEC_LOG_FILE 2>&1 <%= "&" if @run_in_background %> 
+      exec `$COMMAND` 1>$EXEC_LOG_FILE 2>&1 <%= "&" if @run_in_background %> 
       <%= @run_in_background ? "echo $! > $PID_FILE;" : "echo $$ > $PID_FILE" %>
       ;;
     stop)
