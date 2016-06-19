@@ -26,8 +26,8 @@ usage() {
 if [ $# -lt 2 ]; then usage; fi
 
 if [ -d $RAILS_ROOT ]; then
-  mkdir -p /var/log/engineyard/$COMMAND_NAME/$1
-  mkdir -p /var/run/engineyard/$COMMAND_NAME/$1
+  sudo mkdir -p /var/log/engineyard/$COMMAND_NAME/$1
+  sudo mkdir -p /var/run/engineyard/$COMMAND_NAME/$1
   
   # handle the second param, don't start if already existing
   case "$2" in
