@@ -40,9 +40,9 @@ if [ -d $RAILS_ROOT ]; then
           echo "$COMMAND_NAME is already running."
           exit 1
         fi
-        rm -f $PID_FILE
+        sudo rm -f $PID_FILE
       fi
-      exec $COMMAND 1>$EXEC_LOG_FILE 2>&1 <%= "&" if @run_in_background %> 
+      exec "$COMMAND" 1>$EXEC_LOG_FILE 2>&1 <%= "&" if @run_in_background %> 
       <%= @run_in_background ? "echo $! > $PID_FILE;" : "echo $$ > $PID_FILE" %>
       ;;
     stop)
@@ -61,7 +61,7 @@ if [ -d $RAILS_ROOT ]; then
             break
           fi
         done
-        rm $PID_FILE
+        sudo rm $PID_FILE
       else
         echo "No PID file found! Cannot stop $COMMAND_NAME"
       fi
