@@ -150,3 +150,7 @@ package "media-gfx/imagemagick" do
   version "6.4.9.2"
   action :upgrade
 end
+enable_package "net-print/cups-pdf"
+package "net-print/cups-pdf" do
+  action :install
+end
