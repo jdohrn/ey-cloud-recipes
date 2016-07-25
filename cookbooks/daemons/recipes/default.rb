@@ -20,7 +20,7 @@ if ['util'].include?(node[:instance_role])
   
   daemons_to_load.each do |d|
     
-    template "/usr/local/bin/#{command_name}_wrapper" do
+    template "/usr/local/bin/#{d[:command_name]}_wrapper" do
       owner node[:owner_name]
       group node[:group_name]
       mode 0755
@@ -30,7 +30,7 @@ if ['util'].include?(node[:instance_role])
                  :run_in_background => d[:run_in_background]})
     end
 
-    template "/etc/monit.d/#{app_name}_#{command_name}.monitrc" do
+    template "/etc/monit.d/#{d[:app_name]}_#{d[:command_name]}.monitrc" do
       owner 'root'
       group 'root'
       mode 0644
