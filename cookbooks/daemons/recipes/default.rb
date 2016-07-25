@@ -26,8 +26,8 @@ if ['util'].include?(node[:instance_role])
       mode 0755
       source "wrapper.sh.erb"
       variables({:command_name => d[:command_name],
-                 :command_to_run => command_to_run,
-                 :run_in_background => run_in_background})
+                 :command_to_run => d[:command_to_run],
+                 :run_in_background => d[:run_in_background]})
     end
 
     template "/etc/monit.d/#{app_name}_#{command_name}.monitrc" do
@@ -35,9 +35,9 @@ if ['util'].include?(node[:instance_role])
       group 'root'
       mode 0644
       source 'monitrc.erb'
-      variables({:app_name => app_name,
-                 :command_name => command_name,
-                 :command_to_run => command_to_run})
+      variables({:app_name => d[:app_name],
+                 :command_name => d[:command_name],
+                 :command_to_run => d[:command_to_run]})
       notifies :reload, resources(:service => 'monit')
     end
     
