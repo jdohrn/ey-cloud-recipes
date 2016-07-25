@@ -141,8 +141,8 @@
 
 require_recipe "crontab"
 require_recipe "delayed_job"
-#require_recipe "dm_pickup_monitor"
-require_recipe "daemons"
+require_recipe "dm_pickup_monitor"
+#require_recipe "daemons"
 
 enable_package "media-gfx/imagemagick" do
   version "6.4.9.2"
