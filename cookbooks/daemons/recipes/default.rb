@@ -12,13 +12,13 @@ daemons_to_load = [
   }
 ]
 
-if ['util'].include?(node[:instance_role])
-  service "monit" do
-    supports :reload => true
-    action :enable
-  end
-  
+if ['util'].include?(node[:instance_role])  
   daemons_to_load.each do |d|
+    
+    service "monit" do
+      supports :reload => true
+      action :enable
+    end
     
     template "/usr/local/bin/#{d[:command_name]}_wrapper" do
       owner node[:owner_name]
