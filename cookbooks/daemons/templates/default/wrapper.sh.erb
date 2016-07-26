@@ -16,7 +16,7 @@ PATH=/bin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:$PATH
 RAILS_ROOT=/data/$1/current
 
 PID_FILE=/var/run/engineyard/$COMMAND_NAME/$1/$COMMAND_NAME.pid
-RAILS_PID_FILE=$RAILS_ROOT/tmp/pids/pickup_monitor.pid
+RAILS_PID_FILE=$RAILS_ROOT/tmp/pids/$COMMAND_NAME.pid
 EXEC_LOG_FILE=/var/log/engineyard/$COMMAND_NAME/wrapper_$1.log
 
 
@@ -49,7 +49,7 @@ if [ -d $RAILS_ROOT ]; then
       ;;
     stop)
       GRACE_TIME=${GRACE_TIME:-40}
-      echo "Stopping $COMMAND_NAME"
+      echo "Stopping $COMMAND_NAMcE"
       if [ -f $PID_FILE ]; then
         PID=`cat $PID_FILE`
         kill $PID 2>/dev/null; true
@@ -83,7 +83,7 @@ if [ -d $RAILS_ROOT ]; then
         done
         rm $RAILS_PID_FILE
       else
-        echo "No rails PID file found to stop"
+        echo "No rails PID file found to stop $COMMAND_NAME"
       fi
       ;;
     *)

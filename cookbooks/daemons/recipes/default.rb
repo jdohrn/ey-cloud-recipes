@@ -1,12 +1,12 @@
 
 daemons_to_load = [
-  { :command_name => 'carrier_tenderer', 
+  { :command_name => 'dm_carrier_tenderer', 
     :command_to_run => 'bundle exec rake daemons:carrier_tenderer RAILS_ENV=production',
     :app_name => 'synergy',
     :run_in_background => true
   },
-  { :command_name => 'pickup_monitor', 
-    :command_to_run => 'bundle exec rake pickup_monitor:testies RAILS_ENV=production',
+  { :command_name => 'dm_testies', 
+    :command_to_run => 'bundle exec rake daemons:testies RAILS_ENV=production',
     :app_name => 'synergy',
     :run_in_background => true
   }
