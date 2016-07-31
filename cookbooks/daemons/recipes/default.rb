@@ -5,6 +5,11 @@ daemons_to_load = [
     :app_name => 'synergy',
     :run_in_background => true
   },
+  { :command_name => 'dm_edi_exchanger',
+    :command_to_run => 'bundle exec rake daemons:edi_exchanger RAILS_ENV=production',
+    :app_name => 'synergy',
+    :run_in_background => true
+  },
   { :command_name => 'dm_testies', 
     :command_to_run => 'bundle exec rake daemons:testies RAILS_ENV=production',
     :app_name => 'synergy',
