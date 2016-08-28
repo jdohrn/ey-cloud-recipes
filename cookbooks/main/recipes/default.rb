@@ -144,13 +144,13 @@ require_recipe "delayed_job"
 #require_recipe "dm_pickup_monitor"
 require_recipe "daemons"
 
-#enable_package "media-gfx/imagemagick" do
-#  version "6.4.9.2"
-#end
-#package "media-gfx/imagemagick" do
-#  version "6.4.9.2"
-#  action :upgrade
-#end
+enable_package "media-gfx/imagemagick" do
+  version "6.4.9.2"
+end
+package "media-gfx/imagemagick" do
+  version "6.4.9.2"
+  action :upgrade
+end
 
 enable_package "net-print/cups-pdf"
 package "net-print/cups-pdf" do
