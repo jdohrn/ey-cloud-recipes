@@ -145,7 +145,12 @@ require_recipe "delayed_job"
 require_recipe "daemons"
 #require_recipe "gpg"
 
-enable_package "app-crypt/gnupg"
+#enable_package "app-crypt/gnupg"
+package "app-crypt/gnupg" do
+  version '2.0.9'
+  action :nothing
+end.run_action(:install)
+
 
 enable_package "media-gfx/imagemagick" do
   version "6.4.9.2"
