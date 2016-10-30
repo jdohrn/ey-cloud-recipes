@@ -143,9 +143,7 @@ require_recipe "crontab"
 require_recipe "delayed_job"
 #require_recipe "dm_pickup_monitor"
 require_recipe "daemons"
-#require_recipe "gpg"
 
-#enable_package "app-crypt/gnupg"
 package "app-crypt/gnupg" do
   version '2.0.9'
   action :nothing
