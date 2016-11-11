@@ -158,7 +158,7 @@ end.run_action(:install)
 #  action :upgrade
 #end
 
-#include_recipe 'imagemagick'
+include_recipe 'imagemagick'
 
 enable_package "net-print/cups-pdf"
 package "net-print/cups-pdf" do
