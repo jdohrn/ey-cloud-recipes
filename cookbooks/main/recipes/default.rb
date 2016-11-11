@@ -150,13 +150,15 @@ package "app-crypt/gnupg" do
 end.run_action(:install)
 
 
-enable_package "media-gfx/imagemagick" do
-  version "6.4.9.2"
-end
-package "media-gfx/imagemagick" do
-  version "6.4.9.2"
-  action :upgrade
-end
+#enable_package "media-gfx/imagemagick" do
+#  version "6.4.9.2"
+#end
+#package "media-gfx/imagemagick" do
+#  version "6.4.9.2"
+#  action :upgrade
+#end
+
+include_recipe 'imagemagick'
 
 enable_package "net-print/cups-pdf"
 package "net-print/cups-pdf" do
