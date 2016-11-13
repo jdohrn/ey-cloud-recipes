@@ -155,7 +155,7 @@ enable_package "media-gfx/imagemagick" do
 end
 package "media-gfx/imagemagick" do
   version "6.7.4.4"
-  action :install
+  action :remove
 end
 
 #include_recipe 'imagemagick'
