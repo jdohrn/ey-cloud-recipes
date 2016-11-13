@@ -156,7 +156,7 @@ end
 
 package "media-gfx/imagemagick" do
   version "6.7.8.8"
-  action :install
+  action :upgrade
 end
 
 #include_recipe 'imagemagick'
