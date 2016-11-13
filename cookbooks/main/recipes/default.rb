@@ -151,11 +151,11 @@ end.run_action(:install)
 
 
 enable_package "media-gfx/imagemagick" do
-  version "6.4.9.2"
+  version "6.7.4.4"
 end
 package "media-gfx/imagemagick" do
-  version "6.4.9.2"
-  action :upgrade
+  version "6.7.4.4"
+  action :install
 end
 
 #include_recipe 'imagemagick'
