@@ -15,6 +15,11 @@ daemons_to_load = [
     :app_name => 'synergy',
     :run_in_background => true
   },
+  { :command_name => 'dm_script_report_jobber', 
+    :command_to_run => 'bundle exec rake daemons:script_report_jobber RAILS_ENV=production',
+    :app_name => 'synergy',
+    :run_in_background => true
+  },  
   { :command_name => 'dm_testies', 
     :command_to_run => 'bundle exec rake daemons:testies RAILS_ENV=production',
     :app_name => 'synergy',
