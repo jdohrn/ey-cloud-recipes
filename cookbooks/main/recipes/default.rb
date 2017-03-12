@@ -161,7 +161,7 @@ require_recipe "daemons"
 
 #include_recipe 'imagemagick'
 
-enable_package "net-print/cups-pdf"
-package "net-print/cups-pdf" do
-  action :install
-end
+#enable_package "net-print/cups-pdf"
+#package "net-print/cups-pdf" do
+#  action :install
+#end
