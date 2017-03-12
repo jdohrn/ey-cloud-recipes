@@ -164,13 +164,18 @@ end
 
 #package "virtual/jre" do
 #  version "1.7.0-r2"
-#  action :upgrade
+#  action :install
 #end
 
-package "dev-java/icedtea-bin" do
-  version "3.3.0"
+package "dev-java/oracle-jre-bin" do
+  version "1.8.0.121"
   action :install
 end
+
+#package "dev-java/icedtea-bin" do
+#  version "3.3.0"
+#  action :install
+#end
 
 #enable_package "media-gfx/imagemagick" do
 #  version "6.7.8.8"
