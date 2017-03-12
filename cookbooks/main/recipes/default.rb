@@ -144,10 +144,10 @@ require_recipe "delayed_job"
 #require_recipe "dm_pickup_monitor"
 require_recipe "daemons"
 
-package "app-crypt/gnupg" do
-  version '2.0.9'
-  action :nothing
-end.run_action(:install)
+#package "app-crypt/gnupg" do
+#  version '2.0.9'
+#  action :nothing
+#end.run_action(:install)
 
 
 enable_package "media-gfx/imagemagick" do
