@@ -173,7 +173,7 @@ end
 #end
 
 package "dev-java/icedtea-bin" do
-  version "7.2.6.8 amd64"
+  version "7.2.6.8"
   action :install
 end
 
