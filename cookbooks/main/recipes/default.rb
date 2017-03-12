@@ -149,6 +149,11 @@ require_recipe "daemons"
 #  action :nothing
 #end.run_action(:install)
 
+package "app-crypt/gnupg" do
+  version '2.0.19'
+  action :install
+end
+
 
 #enable_package "media-gfx/imagemagick" do
 #  version "6.7.8.8"
