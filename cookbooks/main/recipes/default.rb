@@ -154,6 +154,9 @@ package "app-crypt/gnupg" do
   action :install
 end
 
+package "net-print/cups-pdf" do
+  action :install
+end
 
 #enable_package "media-gfx/imagemagick" do
 #  version "6.7.8.8"
