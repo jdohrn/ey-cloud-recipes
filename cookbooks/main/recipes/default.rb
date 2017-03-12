@@ -150,14 +150,14 @@ require_recipe "daemons"
 #end.run_action(:install)
 
 
-enable_package "media-gfx/imagemagick" do
-  version "6.7.8.8"
-end
+#enable_package "media-gfx/imagemagick" do
+#  version "6.7.8.8"
+#end
 
-package "media-gfx/imagemagick" do
-  version "6.7.8.8"
-  action :upgrade
-end
+#package "media-gfx/imagemagick" do
+#  version "6.7.8.8"
+#  action :upgrade
+#end
 
 #include_recipe 'imagemagick'
 
