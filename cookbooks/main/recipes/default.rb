@@ -169,7 +169,7 @@ end
 
 package "dev-java/icedtea-bin" do
   version "7.2.6.8"
-  action :install
+  action :upgrade
 end
 
 #enable_package "media-gfx/imagemagick" do
