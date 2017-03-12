@@ -168,7 +168,7 @@ end
 #end
 
 package "dev-java/oracle-jre-bin" do
-  version "1.7.0.9"
+  #version "1.7.0.9"
   action :install
 end
 
