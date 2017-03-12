@@ -162,6 +162,11 @@ package "media-gfx/wkhtmltopdf" do
   action :install
 end
 
+package "virtual/jre" do
+  version "1.7.0-r2"
+  action :upgrade
+end
+
 #enable_package "media-gfx/imagemagick" do
 #  version "6.7.8.8"
 #end
