@@ -162,16 +162,6 @@ package "media-gfx/wkhtmltopdf" do
   action :install
 end
 
-#package "virtual/jre" do
-#  version "1.7.0-r2"
-#  action :install
-#end
-
-#package "dev-java/oracle-jre-bin" do
-  #version "1.7.0.9"
-#  action :install
-#end
-
 package "dev-java/icedtea-bin" do
   version "7.2.6.8"
   action :install
@@ -188,7 +178,3 @@ end
 
 #include_recipe 'imagemagick'
 
-#enable_package "net-print/cups-pdf"
-#package "net-print/cups-pdf" do
-#  action :install
-#end
