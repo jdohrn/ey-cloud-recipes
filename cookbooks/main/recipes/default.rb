@@ -139,6 +139,7 @@
   # postgresql9_pg_freespacemap "postgres"
 #end
 
+require_recipe "database_yml_custom"
 require_recipe "crontab"
 require_recipe "delayed_job"
 #require_recipe "dm_pickup_monitor"
