@@ -27,7 +27,8 @@ daemons_to_load = [
   }
 ]
 
-if ['util'].include?(node[:instance_role])  
+#if ['util'].include?(node[:instance_role])
+if node[:name] == 'opt'
   daemons_to_load.each do |d|
     
     service "monit" do
