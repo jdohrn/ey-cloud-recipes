@@ -68,5 +68,12 @@ if node[:name] == 'opt'
     user 'deploy'
     command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake maintenance:weekly_maintenance_cycle"
   end
-
+elsif node[:name] == 'opx' 
+  cron "deere_daily_optimization_cycle" do
+    minute '0'
+    hour '*/2'
+    weekday '1-5'
+    user 'deploy'
+    command "cd /data/synergy/current && RAILS_ENV=production bundle exec rake monitoring:testy"
+  end
 end
