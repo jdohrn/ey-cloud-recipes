@@ -140,42 +140,8 @@
 #end
 
 require_recipe "database_yml_custom"
-require_recipe "crontab"
-require_recipe "delayed_job"
-#require_recipe "dm_pickup_monitor"
-require_recipe "daemons"
+#require_recipe "crontab"
+#require_recipe "delayed_job"
+#require_recipe "daemons"
 
-#package "app-crypt/gnupg" do
-#  version '2.0.9'
-#  action :nothing
-#end.run_action(:install)
-
-package "app-crypt/gnupg" do
-  version '2.0.19'
-  action :install
-end
-
-package "net-print/cups-pdf" do
-  action :install
-end
-
-package "media-gfx/wkhtmltopdf" do
-  action :install
-end
-
-package "dev-java/icedtea-bin" do
-  version "7.2.6.8"
-  action :install
-end
-
-#enable_package "media-gfx/imagemagick" do
-#  version "6.7.8.8"
-#end
-
-#package "media-gfx/imagemagick" do
-#  version "6.7.8.8"
-#  action :upgrade
-#end
-
-#include_recipe 'imagemagick'
 
